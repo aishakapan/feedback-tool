@@ -19,4 +19,5 @@ def write_into_json():
 old_str = "Look here's some text I wanna replace cause it sucks."
 new_str = "Shiny new sentence."
 
-replace_from_json(data, old_str, new_str
+replace_from_json(data, old_str, new_str)
+print(data)
