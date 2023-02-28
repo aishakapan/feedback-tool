@@ -1,23 +1,22 @@
 import json
+import pandas as pd
 
 data_file = "data.json"
+rows = pd.read_excel('test_sample.xlsx')
 
-with open(data_file) as f:
-    data = json.load(f)
+old_str = list(rows["Old"])
+new_str = list(rows["New"])
+old_new_pairs = list(zip(old_str, new_str))
 
+with open(data_file, 'r') as f:
+    strf = f.read()
 
-def replace_from_json(data, old_str, new_str):
-    stringified_data = str(data)
-    updated = stringified_data.replace(old_str, new_str)
-    double_quote_updated = updated.replace("'", '"')
-    updated_json = json.loads(double_quote_updated)
-    return updated_json
-    
-def write_into_json():
-    pass
+def replace_from_json(data, replace_values):
+    new_data = data
+    for i in replace_values:
+        new_data = new_data.replace(i[0], i[1])
+    with open(data_file, 'w') as f:
+        json.dump(json.loads(new_data), f, indent=4)
+        
+replace_from_json(strf, old_new_pairs)
 
-old_str = "Look here's some text I wanna replace cause it sucks."
-new_str = "Shiny new sentence."
-
-replace_from_json(data, old_str, new_str)
-print(data)

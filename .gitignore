@@ -1,0 +1,5 @@
+# ignore virtual env folder
+env/
+
+# ignore personal notes
+some-notes.txt

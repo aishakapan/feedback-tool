@@ -1,6 +1,8 @@
 {
     "text": {
-        "name": "Something",
-        "copy": "Look here's some text I wanna replace cause it sucks."
+        "name": "bless",
+        "copy": "Look here's some text I wanna replace cause it sucks to die.",
+        "testcat": "young cat",
+        "animals": "young dog"
     }
 }
